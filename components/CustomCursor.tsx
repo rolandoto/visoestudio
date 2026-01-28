@@ -3,7 +3,9 @@
 import { useEffect, useState } from 'react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 const CURSOR_SIZE = 40
+
 export default function CustomCursor() {
+
   const [isHovering, setIsHovering] = useState(false)
 
   const mouseX = useMotionValue(-100)

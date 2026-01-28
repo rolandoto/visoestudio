@@ -24,43 +24,7 @@ export default function Navigation() {
     return () => unsubscribe()
   }, [smoothProgress])
 
-  const menuVariants = {
-    closed: {
-      clipPath: 'circle(0% at 95% 5%)',
-      transition: {
-        type: 'spring',
-        stiffness: 300,
-        damping: 35,
-      }
-    },
-    open: {
-      clipPath: 'circle(150% at 95% 5%)',
-      transition: {
-        type: 'spring',
-        stiffness: 300,
-        damping: 35,
-      }
-    }
-  }
-
-  const linkVariants = {
-    closed: { 
-      opacity: 0, 
-      y: 50,
-      rotateX: -90,
-    },
-    open: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      rotateX: 0,
-      transition: {
-        delay: i * 0.08,
-        duration: 0.6,
-        ease: [0.215, 0.61, 0.355, 1]
-      }
-    })
-  }
-
+ 
   return (
     <>
       <motion.nav
@@ -144,7 +108,6 @@ export default function Navigation() {
               initial="closed"
               animate="open"
               exit="closed"
-              variants={menuVariants}
             >
               <motion.button
                 className="close-menu"
@@ -169,7 +132,7 @@ export default function Navigation() {
                     <motion.div
                       key={item.name}
                       className="menu-link-wrapper"
-                      variants={linkVariants}
+
                       custom={i}>
                       <a
                         href={item.href}
